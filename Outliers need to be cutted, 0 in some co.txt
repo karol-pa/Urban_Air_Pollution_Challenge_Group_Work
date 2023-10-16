@@ -1,0 +1,82 @@
+Outliers need to be cutted, 0 in some columns to be changed as NaN 
+['Place_ID X Date',
+ 'Date',
+ 'Place_ID',
+ 'target',
+ 'target_min',
+ 'target_max',
+ 'target_variance',
+ 'target_count',
+ 'precipitable_water_entire_atmosphere', no missing value, standard scaler
+ 'relative_humidity_2m_above_ground', no missing value, standard scaler
+ 'specific_humidity_2m_above_ground', no missing value, standard scaler
+ 'temperature_2m_above_ground', no missing value, standard scaler
+ 'u_component_of_wind_10m_above_ground',  no missing value, standard scaler (try model with abs value maybe?)
+ 'v_component_of_wind_10m_above_ground', no missing value, standard scaler
+ 'L3_NO2_NO2_column_number_density', outliers, missing values, impute KNN(if feature setting possible), standardscale
+ 'L3_NO2_NO2_slant_column_number_density', outliers, missing values, impute KNN(if feature setting possible), standardscale
+ 'L3_NO2_absorbing_aerosol_index', missing values, impute KNN(if feature setting possible), standardscale
+ 'L3_NO2_cloud_fraction', missing values, impute KNN(if feature setting possible)
+ 'L3_NO2_sensor_azimuth_angle', impute and standardscale
+ 'L3_NO2_sensor_zenith_angle', KNNimpute and minxmax scaler
+ 'L3_NO2_solar_azimuth_angle', KNNimpute and standardsclaer
+ 'L3_NO2_solar_zenith_angle', KNNimpute and standardsclaer
+ 'L3_NO2_stratospheric_NO2_column_number_density', *not included
+ 'L3_NO2_tropopause_pressure', * not included
+ 'L3_NO2_tropospheric_NO2_column_number_density', KNNimpute and standardsclaer
+ 'L3_O3_O3_column_number_density',KNNimpute and standardsclaer
+ 'L3_O3_O3_effective_temperature',KNNimpute and standardsclaer
+ 'L3_O3_cloud_fraction', KNN impute
+ 'L3_O3_sensor_azimuth_angle',* not included
+ 'L3_O3_sensor_zenith_angle', KNNimpute and MinMaxsclaer
+ 'L3_O3_solar_azimuth_angle', KNNimpute and standardsclaer
+ 'L3_O3_solar_zenith_angle', KNNimpute and standardsclaer
+ 'L3_CO_CO_column_number_density',  cut at 0.1, KNNimpute and standardsclaer,
+ 'L3_CO_H2O_column_number_density', cut at 5000, KNNimpute and standardsclaer, 
+ 'L3_CO_cloud_height', change the values <= 0, KNNimpute and standardsclaer,
+ 'L3_CO_sensor_altitude', change the values below , KNNimpute and standardsclaer,
+ 'L3_CO_sensor_azimuth_angle', KNNimpute and standardsclaer, 
+ 'L3_CO_sensor_zenith_angle',  KNNimpute and minmaxsclaer, 
+ 'L3_CO_solar_azimuth_angle',  KNNimpute and minmaxsclaer, 
+ 'L3_CO_solar_zenith_angle',    KNNimpute and standardsclaer, 
+ 'L3_HCHO_HCHO_slant_column_number_density',  KNNimpute and standardsclaer, 
+ 'L3_HCHO_cloud_fraction', KNNimpute
+ 'L3_HCHO_sensor_azimuth_angle', * NOT INDLUCDED
+ 'L3_HCHO_sensor_zenith_angle',  KNNimpute and minmaxsclaer, 
+ 'L3_HCHO_solar_azimuth_angle', KNNimpute and minmaxsclaer, 
+ 'L3_HCHO_solar_zenith_angle', KNNimpute and standardsclae
+ 'L3_HCHO_tropospheric_HCHO_column_number_density', KNNimpute and standardsclae
+ 'L3_HCHO_tropospheric_HCHO_column_number_density_amf', KNNimpute and standardsclae
+ 'L3_CLOUD_cloud_base_height', KNNimpute and standardsclae
+ 'L3_CLOUD_cloud_base_pressure', standardsclae
+ 'L3_CLOUD_cloud_fraction', KNNimpute
+ 'L3_CLOUD_cloud_optical_depth', cutoff at 100(?) KNNimpute KNNimpute and standardsclae
+ 'L3_CLOUD_cloud_top_height'KNNimpute ,standardsclae
+ 'L3_CLOUD_cloud_top_pressure',standardsclae
+ 'L3_CLOUD_sensor_azimuth_angle', * not included
+ 'L3_CLOUD_sensor_zenith_angle',KNNimpute minmaxsclaer 
+ 'L3_CLOUD_solar_azimuth_angle', KNNimpute and standardsclae
+ 'L3_CLOUD_solar_zenith_angle', standardscale
+ 'L3_CLOUD_surface_albedo', standardscale
+ 'L3_AER_AI_absorbing_aerosol_index', standardscale
+ 'L3_AER_AI_sensor_altitude', standardscale
+ 'L3_AER_AI_sensor_azimuth_angle', * not included
+ 'L3_AER_AI_sensor_zenith_angle', MinMaxsclaer
+ 'L3_AER_AI_solar_azimuth_angle', KNNimpute MinMaxsclaer
+ 'L3_AER_AI_solar_zenith_angle', standardscale
+ 'L3_SO2_SO2_column_number_density', KNNimpute and standardsclae cutoff value < -0.01 and > 0.01
+ 'L3_SO2_SO2_column_number_density_amf', KNNimpute and standardsclae
+ 'L3_SO2_SO2_slant_column_number_density', cutoff < -0.002 > 0.002 and KNNimpute and standardsclae
+ 'L3_SO2_absorbing_aerosol_index',KNNimpute and standardsclae
+ 'L3_SO2_cloud_fraction', KNNimpute 
+ 'L3_SO2_sensor_azimuth_angle',* not included
+ 'L3_SO2_sensor_zenith_angle',KNNimpute and minmaxsclaer
+ 'L3_SO2_solar_azimuth_angle', KNNimpute and minmaxsclaer
+ 'L3_SO2_solar_zenith_angle',KNNimpute and standardscaler
+ 'L3_CH4_CH4_column_volume_mixing_ratio_dry_air', * not included
+ 'L3_CH4_aerosol_height',* not included
+ 'L3_CH4_aerosol_optical_depth',* not included
+ 'L3_CH4_sensor_azimuth_angle',* not included
+ 'L3_CH4_sensor_zenith_angle',* not included
+ 'L3_CH4_solar_azimuth_angle',* not included
+ 'L3_CH4_solar_zenith_angle']* not included
